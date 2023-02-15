@@ -53,17 +53,18 @@
                       <form action="{{ route('forget.password.post') }}" method="POST">
                           @csrf
                           <div class="form-group row">
-                              <label for="email_address">E-Mail Address</label>
-                              <div class="col-md-10">
-                                  <input type="text" id="email_address" class="form-control" name="email" required autofocus>
+                        
+                              <div class="col-md-12">
+                                {{-- <label for="email_address">E-Mail Address</label> --}}
+                                  <input type="text" id="email_address" placeholder="Enter Email Address" class="form-control" name="email" required autofocus>
                                   @if ($errors->has('email'))
                                       <span class="text-danger">{{ $errors->first('email') }}</span>
                                   @endif
                               </div>
                           </div>
-                          <div class="col-md-10 offset-md-1">
-                              <button type="submit" class="btn btn-primary">
-                                  Send Password Reset Link
+                          <div class="col-md-12 px-0">
+                              <button type="submit" class="btn btn-primary btn-user btn-block">
+                                   Reset Password
                               </button>
                           </div>
                       </form>

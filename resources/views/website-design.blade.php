@@ -331,50 +331,38 @@
               <div class="purchase-plan-service">
                 <div class="card shadow mb-4">
                   <div class="card-body px-4 py-5">
-                    <div class="purchase-price mb-2">
+                    <div class="purchase-price mb-3">
                       {{$webproduct->price}} <span>/year</span> </div>
-                    </div>
-                    <h2 class="h3 mb-3">{{$webproduct->name}}</h2>
+                    <h2 class="h3 mb-4">{{$webproduct->name}}</h2>
                     <div class="purchase-features">
                       <ul>
-                        <li><i class="bi bi-check2-circle"></i> {{$webproduct->description1}}</li>
-                        <li>
-                          <i class="bi bi-check2-circle"></i>{{$webproduct->description2}}
-                        </li>
+                        <li><i class="bi bi-check2-circle"></i>{{$webproduct->description1}}</li>
+                        <li><i class="bi bi-check2-circle"></i>{{$webproduct->description2}}</li>
                         <li><i class="bi bi-check2-circle"></i>{{$webproduct->description3}}</li>
-                        <li>
-                          <i class="bi bi-check2-circle"></i>{{$webproduct->description4}}
-                        </li>
-                        <li>
-                          <i class="bi bi-check2-circle"></i>{{$webproduct->description5}}
-                        </li>
+                        <li><i class="bi bi-check2-circle"></i>{{$webproduct->description4}}</li>
+                        <li><i class="bi bi-check2-circle"></i>{{$webproduct->description5}}</li>
                         <li><i class="bi bi-check2-circle"></i>{{$webproduct->description6}}</li>
-                        <li>
-                          <i class="bi bi-check2-circle"></i>{{$webproduct->description7}}
-                        <li>
-                          <i class="bi bi-check2-circle"></i>{{$webproduct->description8}}
-                        </li>
-                        <li>
-                          <i class="bi bi-check2-circle"></i>{{$webproduct->description9}}
-                        </li>
+                        <li><i class="bi bi-check2-circle"></i>{{$webproduct->description7}}</li>
+                        <li><i class="bi bi-check2-circle"></i>{{$webproduct->description8}}</li>
+                        <li><i class="bi bi-check2-circle"></i>{{$webproduct->description9}}</li>
                         <li><i class="bi bi-check2-circle"></i>{{$webproduct->description10}}</li>
-                        <li>
-                          <i class="bi bi-check2-circle"></i>{{$webproduct->description11}}
-                        </li>
+                        <li><i class="bi bi-check2-circle"></i>{{$webproduct->description11}}</li>
                         <li><i class="bi bi-check2-circle"></i>{{$webproduct->description12}}</li>
                       </ul>
                     </div>
                     <div class="purchase-order-btn">
-                      <a href="{{$webproduct->price_link}}" class="btn btn-primary w-100">Buy Now</a>
+                      <a href="{{$webproduct->payment_link}}" class="btn btn-primary w-100">Buy Now</a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             @endforeach
-                    @else
-                    @endif
-         
+                      @else
+                      @endif
+        
+          </div>
+        </div>
         <!-- End of Main Content -->
         <!-- Footer -->
         <footer class="sticky-footer bg-white">

@@ -33,10 +33,11 @@
                   <div class="text-center">
                     <img src="{{ URL::asset('image/logo.png') }}" class="mb-4" alt="Brand Logo" />
                     <h1 class="h4 text-gray-900 mb-5">Create an Account!</h1>
-			<form action="{{ route('sample.validate_registration') }}" method="POST">
+			<form action="{{ route('sample.validate_registration') }}"  method="POST" class="user">
 				@csrf
+			
 				<div class="form-group row">
-					<div class="col-sm-6">
+					<div class="col-sm-12">
 					<input type="text" name="firstname" class="form-control" placeholder="First Name" />
 					@if($errors->has('firstname'))
 						<span class="text-danger">{{ $errors->first('firstname') }}</span>

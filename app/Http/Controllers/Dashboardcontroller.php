@@ -56,7 +56,7 @@ class Dashboardcontroller extends Controller
         }
         public function websitedesign()
         {
-        $products = WebProduct::orderBy('id', 'asc')->paginate(3);
+        $webproducts = WebProduct::orderBy('id', 'asc')->paginate(3);
         return view("website-design",compact("webproducts"));
         }
     

@@ -103,7 +103,7 @@
         <tbody>
             <tr>
                 <td>Order Id:</td>
-                <td>6</td>
+                <td>{{  }}</td>
 
                 <td>Full Name:</td>
                 <td>{{ Auth::user()->firstname }} 
@@ -168,7 +168,7 @@
             <tr>
                 <td width="10%">17</td>
                 <td>
-                    Vivo V19
+                    Web Hosting
                 </td>
                 <td width="10%">$699</td>
                 <td width="10%">1</td>

@@ -230,11 +230,11 @@
 
       <!-- Purchase order section content -->
       <div class="container my-5">
-        <h2 class="h2 text-center fw-700 mb-1 ">
+        <h2 class="h2 text-center fw-700 mb-1 " id="deal">
           For You, We Have the Ideal <br />
           Web Hosting Package
         </h2>
-        <p class="text-center text-uppercase fs-14 mb-5">
+        <p class="text-center text-uppercase fs-14 mb-5" id="contactText">
           Contact us for detail pricing overview.
         </p>
         <div class="row purchase-plan">
