@@ -11669,6 +11669,8 @@ body.sidebar-toggled footer.sticky-footer {
     opacity: 0.9;
 }
 
+
+
 /* Responsive css */
 
 @media screen and (max-width: 767px) {
@@ -11742,23 +11744,23 @@ body.sidebar-toggled footer.sticky-footer {
     #contactText {
         margin-top: 0.35rem;
     }
+
+    #refer-card,#earn-card, #sign-up-card{
+        max-height: fit-content;
+        margin-bottom: .35rem;
+        padding: .35rem;
+        font-size: .85rem;
+    }
+    #register-earn-btn{
+        margin-top: .65rem;
+    }
+  
 }
 
 .button {
     transition: 3s ease-in-out;
 }
 
-    /* @media (min-width:768px ) {
-        .purchase-plan{
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .purchase-plan>.col-md-4{
-            max-width: 90%;
-        }
-    } */
 
     @media ( max-width:1096px){
         .purchase-plan{
@@ -11800,4 +11802,39 @@ body.sidebar-toggled footer.sticky-footer {
             width: 94.5%;
             margin-left: .25rem;
         }
+    }
+
+    @media (max-width:1080px){
+       #refer-process{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+       }
+
+       #refer-card,#earn-card, #sign-up-card{
+        max-height: fit-content;
+        min-width: 30rem;
+        max-width: auto;
+        margin-bottom: .35rem;
+        padding: .35rem;
+     }
+    }
+
+  
+    @media (max-width:940px){
+        #affilate-service{
+            min-width: fit-content;
+            max-width: 65%;
+            font-size: .85rem;
+        }
+        #affilate-service .service-content-left {
+            width: 100%;
+        }
+    }
+
+    @media  (max-width:840px){
+      #affilate-form form input,
+      #affilate-form form label{
+        font-size: .8rem;
+      }  
     }

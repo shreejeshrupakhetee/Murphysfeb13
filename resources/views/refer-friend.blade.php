@@ -321,7 +321,7 @@
         </div>
 
         <div class="container mb-4">
-          <div class="service-wrapper">
+          <div class="service-wrapper" id='affilate-service'>
             <div class="service-content-left pl-4">
               <h2 class="fw-500">Affilates</h2>
               <p>
@@ -331,7 +331,7 @@
               </p>
               <a
                 href="#affilate-form"
-                class="btn btn-primary bg-transparent px-4 py-3"
+                class="btn btn-primary bg-transparent px-4 py-3" id='register-earn-btn'
                 >Register & Start To Earn</a
               >
             </div>
@@ -341,8 +341,8 @@
           </div>
         </div>
         <div class="container mt-4 mb-5">
-          <div class="row">
-            <div class="col-md-4">
+          <div class="row" id='refer-process'>
+            <div class="col-md-4 " id='sign-up-card'>
               <div class="affilate-step p-4">
                 <img src="{{ URL::asset("image/handshake.png")}}" />
                 <div>
@@ -355,7 +355,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 " id='refer-card'>
               <div class="affilate-step p-4">
                 <img src="{{ URL::asset("image/chat.png")}}"/>
                 <div>
@@ -368,7 +368,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 " id='earn-card'>
               <div class="affilate-step p-4">
                 <img src="{{ URL::asset("image/earn.png")}}"/>
                 <div>
@@ -383,10 +383,10 @@
           </div>
         </div>
         <div class="bg-white" id="affilate-form">
-          <div class="container my-5 pt-3">
+          <div class="container-fluid my-5 pt-3">
             <h2 class="h3 text-center fw-700 mb-5">Become An Affiliate</h2>
             <div class="row justify-content-center">
-              <div class="col-8">
+              <div class="col-9">
                 <div class="contact-form">
                   <form>
                     <div class="form-group row">
