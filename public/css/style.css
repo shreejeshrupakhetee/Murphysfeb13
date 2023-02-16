@@ -11461,7 +11461,7 @@ body.sidebar-toggled footer.sticky-footer {
 .service-wrapper .service-content-right {
     width: 50%;
     display: inline-flex;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .purchase-plan .purchase-price {
@@ -11747,3 +11747,57 @@ body.sidebar-toggled footer.sticky-footer {
 .button {
     transition: 3s ease-in-out;
 }
+
+    /* @media (min-width:768px ) {
+        .purchase-plan{
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .purchase-plan>.col-md-4{
+            max-width: 90%;
+        }
+    } */
+
+    @media ( max-width:1096px){
+        .purchase-plan{
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .purchase-plan>.col-md-4{
+            max-width: 60%;
+        }
+        
+    }
+
+    @media (max-width:960px){
+       .service-wrapper{
+        min-width: 50%;
+        max-width: 70%;
+        margin: auto auto;
+       }
+
+        .service-wrapper img{
+            display: none;
+        }
+
+        .service-wrapper .service-content-left{
+            width: 100%;
+        }
+
+        .service-wrapper .service-content-left p{
+            min-width: 40ch;
+            max-width: 45ch;
+        }
+
+        
+    }
+
+    @media (min-width:960px),(max-width:1080px){
+        .service-wrapper img{
+            width: 94.5%;
+            margin-left: .25rem;
+        }
+    }

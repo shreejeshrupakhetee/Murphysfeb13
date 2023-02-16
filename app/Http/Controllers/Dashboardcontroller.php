@@ -12,21 +12,21 @@ class Dashboardcontroller extends Controller
 {
     function contactus()
     {
-        if(Auth::check())
-        {
+        // if(Auth::check())
+        // {
             return view('contact-us');
-        }
+        // }
 
-        return redirect('login')->with('success', 'you are not allowed to access');
+        // return redirect('login')->with('success', 'you are not allowed to access');
     }
       function improveseo()
         {
-            if(Auth::check())
-            {
+            // if(Auth::check())
+            // {
                 return view('improve-seo');
-            }
+            // }
     
-            return redirect('login')->with('success', 'you are not allowed to access');
+            // return redirect('login')->with('success', 'you are not allowed to access');
         }
 
         function discounts()

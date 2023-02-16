@@ -420,24 +420,25 @@
 
 
   <!-- Bootstrap core JavaScript-->
-  <script src="{{ URL::asset("public/app.js") }}"></script>
+  <script src="{{ URL::asset("public/script.js") }}"></script>
   <script src="{{ URL::asset("jquery/jquery.min.js")}}"></script>
   <script src="{{ URL::asset("bootstrap/js/bootstrap.bundle.min.js")}}"></script>
   <script>
-const toggleButton = document.querySelector("#sidebarToggleTop");
-const navbar = document.querySelector(".navbar-nav");
-const wrapper = document.querySelector("#content-wrapper");
-const bodyOverlay = document.querySelector(".body-overlay");
-const body = document.querySelector("body");
-toggleButton.addEventListener("click", toggle);
+      console.log('error isabdsahdvjhvh')
+     const toggleButton = document.querySelector("#sidebarToggleTop"); 
+     const navbar = document.querySelector(".navbar-nav");
+     const wrapper = document.querySelector("#content-wrapper");
+     const bodyOverlay = document.querySelector(".body-overlay");
+     const body = document.querySelector("body");
+     toggleButton.addEventListener("click", toggle);
 
-function toggle() {
-    navbar.classList.toggle("navabar-open");
-    wrapper.classList.toggle("wrapper-open");
-    bodyOverlay.classList.toggle("overlay-open");
-    toggleButton.classList.toggle('button-open');
-    body.classList.toggle('body-open');
-}
+   function toggle() {
+     navbar.classList.toggle("navabar-open");
+     wrapper.classList.toggle("wrapper-open");
+     bodyOverlay.classList.toggle("overlay-open");
+     toggleButton.classList.toggle('button-open');
+     body.classList.toggle('body-open');
+   }
   </script>
 </body>
 
