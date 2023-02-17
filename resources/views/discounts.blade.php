@@ -230,12 +230,12 @@
                                 <p class="w-50 mx-auto  my-4 fw-600 text-gray-900">
                                     Please reach out with a screenshot, and we’ll send over the coupon.
                                 </p>
-                                <div class="d-flex w-25 mx-auto align-items-center">
-                                    <a class="btn btn-primary " style="background-color: #ac2bac;" href="https://www.instagram.com/murphystechnology/" role="button">Instagram</a>
+                                <div class="container-fluid d-flex justify-content-center w-25 mx-auto align-items-center">
+                                    <a class="btn btn-primary" target='_' id='instagram-btn' style="background-color: #ac2bac;" href="https://www.instagram.com/murphystechnology/" role="button">Instagram</a>
                                         
                                     </a>
                                     <a href="https://www.google.com/search?q=murphystechnology&oq=murphystechnology+&aqs=chrome..69i57j69i60l4.3280j0j1&sourceid=chrome&ie=UTF-8#lrd=0x6b12bbd91afdc181:0xb17c84cb35b6c196,3,,,"
-                                        class="btn btn-google btn-user btn-block mt-0">
+                                        class="btn btn-google btn-user btn-block mt-0" id='google-btn'>
                                         Google
                                     </a>
                                 </div>
@@ -247,7 +247,7 @@
                 <!-- facebook and google reviews -->
                 <div class="container review-container">
 
-                    <div>
+                    <div id='google-review-card'>
                         <a href="https://www.google.com/search?q=murphystechnology&oq=murphystechnology+&aqs=chrome..69i57j69i60l4.3280j0j1&sourceid=chrome&ie=UTF-8#lrd=0x6b12bbd91afdc181:0xb17c84cb35b6c196,3,,," class="review-card google-card">
                             <img src="{{ URL::asset("image/google.png")}}" class="mr-2" alt="google image">
                             <div class="ml-1">
@@ -266,7 +266,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class=" mt-2">
+                    <div id='instagram-review-card'>
                         <a href="https://www.instagram.com/murphystechnology/" class="review-card instagram-card">
                             <img src="{{ URL::asset("image/instagram.png")}}" class="mr-2" alt="instagram image">
                             <div class="ml-1">

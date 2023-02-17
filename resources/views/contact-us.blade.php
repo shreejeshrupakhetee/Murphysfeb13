@@ -338,16 +338,16 @@
         </div>
 
         <!-- Contact us info -->
-        <div class="container contact-info-container mb-4">
-          <div class="row m-2">
-            <div class="col-md-4 contact-info">
+        <div class="container-fluid contact-info-container mb-4">
+          <div class="row m-2" id='info-card-wrapper'>
+            <div class="col-md-4 contact-info" id='contact-card'>
               <div class="card shadow mb-4">
-                <div class="card-body mt-5">
+                <div class="card-body mt-5" id='contact-info-card'>
                   <div class="contact-info-icon">
                     <i class="fas fa-phone-alt"></i>
                   </div>
                   <div class="contact-info-content">
-                    <h4 class="fw-600">For Enquiries</h4>
+                    <h4 class="fw-600" id='contact-card-heading'>For Enquiries</h4>
                     <a href="tel:02 8880 5646">02 8880 5646 </a>
                   </div>
                   <div class="contact-info-content">
@@ -356,14 +356,14 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4 contact-info">
+            <div class="col-md-4 contact-info" id='contact-card'>
               <div class="card shadow mb-4">
-                <div class="card-body mt-5">
+                <div class="card-body mt-5" id='contact-info-card'>
                   <div class="contact-info-icon">
                     <i class="fas fa-envelope"></i>
                   </div>
                   <div class="contact-info-content">
-                    <h4 class="fw-600">Email</h4>
+                    <h4 class="fw-600" id='contact-card-heading'>Email</h4>
                     <a href="mailto:info@murphystechnology.com"
                       >info@murphystechnology.com</a
                     >
@@ -376,14 +376,14 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4 contact-info">
+            <div class="col-md-4 contact-info" id='contact-card'>
               <div class="card shadow mb-4">
-                <div class="card-body mt-5">
+                <div class="card-body mt-5" id='contact-info-card'>
                   <div class="contact-info-icon">
                     <i class="fas fa-map-marker-alt"></i>
                   </div>
                   <div class="contact-info-content">
-                    <h4 class="fw-600">Office</h4>
+                    <h4 class="fw-600" id='contact-card-heading'>Office</h4>
                     <p class="mb-0 fs-14">
                       Unit 46 162/170 Parramatta Road, <br />
                       Homebush NSW 2140

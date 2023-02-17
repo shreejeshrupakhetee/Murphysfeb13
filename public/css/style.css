@@ -8143,10 +8143,10 @@ button.bg-dark:focus {
     margin: 0.5rem !important;
 }
 
-.mt-2,
+/* .mt-2,
 .my-2 {
     margin-top: 0.5rem !important;
-}
+} */
 
 .mr-2,
 .mx-2 {
@@ -10763,6 +10763,21 @@ a:focus {
     color: #3a3b45;
 }
 
+#google-btn{
+    width: auto;
+    height: auto;
+    padding:.8rem 2.5rem;
+    font-weight: bold;
+    /* margin: 0 1.25rem; */
+}
+
+#instagram-btn{
+    width: auto;
+    height: auto;
+    padding: .6rem 1.8rem;
+    margin-right: 1.5rem;
+}
+
 @media (min-width: 576px) {
     .topbar .dropdown {
         position: relative;
@@ -11561,13 +11576,15 @@ body.sidebar-toggled footer.sticky-footer {
     height: 53px;
 }
 
-.contact-service-wrapper {
-    padding: 62px 20px;
-}
 
 .contact-info-container {
-    margin-top: -85px;
+    /* margin-top: -85px; */
+    margin: 2.5rem 0;
+    display: flex;
+    justify-content: center;
 }
+
+
 
 .form-control:focus {
     box-shadow: none;
@@ -11601,13 +11618,44 @@ body.sidebar-toggled footer.sticky-footer {
     color: #3b5998;
 }
 
-.review-container {
+/* .review-container {
     position: fixed;
     left: 250px;
     z-index: 9999;
     bottom: 20px;
     width: 290px;
+} */
+
+.review-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+#google-review-card{
+    margin-right: 1.5rem;
+}
+
+@media (max-width:535px){
+    .review-container{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #google-review-card{
+        margin-right: 0;
+    }
+
+    #instagram-review-card{
+        margin: 0;
+        margin-top: .85rem;
+    }
+}
+
+
+
+
+
 
 /* Refer a friend page CSS */
 .affilate-step {
@@ -11754,6 +11802,16 @@ body.sidebar-toggled footer.sticky-footer {
     #register-earn-btn{
         margin-top: .65rem;
     }
+
+    #contact-info-card{
+        max-width: fit-content;
+    }
+
+    #contact-card{
+        margin: .65rem auto;
+        min-width :20rem;
+        max-width: 25rem;
+    }
   
 }
 
@@ -11838,3 +11896,49 @@ body.sidebar-toggled footer.sticky-footer {
         font-size: .8rem;
       }  
     }
+
+    @media (max-width:900px){
+        .contact-service-wrapper{
+            font-size: .88rem;
+            min-width: fit-content;
+        }
+        
+    }
+
+   @media (max-width:1331px){
+   
+    #contact-card-heading   {
+        font-size: 1.15rem;
+    }
+
+    #contact-info-content p,
+    #contact-info-content a{
+        font-size: .15em;
+    }
+   }
+
+   @media (max-width:804px){
+    .review-container{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #google-review-card{
+        margin-right: 0;
+    }
+
+    #instagram-review-card{
+        margin: 0;
+        margin-top: .85rem;
+    }
+}
+   
+
+
+
+
+
+
+   
+
+
