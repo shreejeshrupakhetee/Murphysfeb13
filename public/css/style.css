@@ -11809,8 +11809,9 @@ body.sidebar-toggled footer.sticky-footer {
 
     #contact-card{
         margin: .65rem auto;
-        min-width :20rem;
-        max-width: 25rem;
+        min-width :30rem;
+        max-width: 35rem;
+
     }
   
 }
@@ -11931,6 +11932,13 @@ body.sidebar-toggled footer.sticky-footer {
         margin: 0;
         margin-top: .85rem;
     }
+}
+
+#contact-card{
+    margin: .65rem auto;
+    min-width :30rem;
+    max-width: 35rem;
+
 }
    
 
