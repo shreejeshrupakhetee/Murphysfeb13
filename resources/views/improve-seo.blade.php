@@ -214,7 +214,7 @@
                     </div>
                 </div>
                 <div class="container mb-4">
-                    <div class="service-wrapper px-4 py-3">
+                    <div class="service-wrapper px-4 py-3" id='improve-seo-wrapper'>
                         <div class="service-content-left pl-4">
                             <h2 class="fw-500">Improve SEO</h2>
                             <p>
@@ -385,6 +385,13 @@
             </div>
         </div>
     </div>
+
+    <!--overlay element-->
+  <div class="body-overlay">
+  </div> 
+
+  <!--external javascript file-->
+  <script src="{{ URL::asset("js/main.js") }}"></script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="{{ URL::asset("jquery/jquery.min.js")}}"></script>

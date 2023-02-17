@@ -333,6 +333,12 @@
             </div>
         </div>
 
+         <!--overlay element-->
+  <div class="body-overlay">
+  </div> 
+
+        <!--external javascript file-->
+        <script src="{{URL::asset('js/main.js')}}"></script>
         <!-- Bootstrap core JavaScript-->
         <script src="{{ URL::asset("jquery/jquery.min.js")}}"></script>
         <script src="{{ URL::asset("bootstrap/js/bootstrap.bundle.min.js")}}"></script>

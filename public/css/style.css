@@ -8350,10 +8350,10 @@ button.bg-dark:focus {
     padding-bottom: 1.5rem !important;
 }
 
-.pl-4,
+/* .pl-4,
 .px-4 {
     padding-left: 1.5rem !important;
-}
+} */
 
 .p-5 {
     padding: 3rem !important;
@@ -11717,7 +11717,10 @@ body.sidebar-toggled footer.sticky-footer {
     opacity: 0.9;
 }
 
-
+.service-wrapper .service-content-left {
+    width: 100%;
+    padding: .9rem 1.5rem;
+}
 
 /* Responsive css */
 
@@ -11729,7 +11732,7 @@ body.sidebar-toggled footer.sticky-footer {
 
     .service-wrapper .service-content-left {
         width: 100%;
-        padding: 1.25rem 3rem;
+        padding: .9rem 1.5rem;
     }
 
     .service-wrapper .service-content-left p {
@@ -11939,6 +11942,29 @@ body.sidebar-toggled footer.sticky-footer {
     min-width :30rem;
     max-width: 35rem;
 
+}
+
+
+@media (max-width:958px){
+    #improve-seo-wrapper{
+        min-width: fit-content;
+    }
+}
+
+@media (max-width:486px){
+    #improve-seo-wrapper{
+        min-width: 25rem;
+        max-width: 30rem;
+        font-size: .9rem;
+    }
+
+    #improve-seo-wrapper .service-content-left{
+        min-width: fit-content;
+    }
+
+    #improve-seo-wrapper p{
+        min-width: fit-content;
+    }
 }
    
 
