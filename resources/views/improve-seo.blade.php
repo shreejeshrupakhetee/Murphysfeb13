@@ -239,7 +239,7 @@
                     WE’RE NOT JUST A DIGITAL SERVICE PROVIDER – WE’RE YOUR PARTNER IN PERFORMANCE
                 </p>
                 <div class="row purchase-plan">
-                    <div class="col-md-4">
+                    <div class="col-md-4" id='offers-col'>
                         <div class="purchase-plan-service">
                             <div class="card shadow mb-4">
                                 <div class="card-body px-4 py-5">
@@ -272,7 +272,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4" id='offers-col'>
                         <div class="purchase-plan-service">
                             <div class="card shadow mb-4">
                                 <div class="card-body px-4 py-5">
@@ -306,7 +306,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4" id='offers-col'>
                         <div class="purchase-plan-service">
                             <div class="card shadow mb-4">
                                 <div class="card-body px-4 py-5">

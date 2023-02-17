@@ -8340,10 +8340,10 @@ button.bg-dark:focus {
     padding-top: 1.5rem !important;
 }
 
-.pr-4,
+/* .pr-4,
 .px-4 {
     padding-right: 1.5rem !important;
-}
+} */
 
 .pb-4,
 .py-4 {
@@ -11951,7 +11951,9 @@ body.sidebar-toggled footer.sticky-footer {
     }
 }
 
-@media (max-width:486px){
+
+
+@media (max-width:505px){
     #improve-seo-wrapper{
         min-width: 25rem;
         max-width: 30rem;
@@ -11964,6 +11966,27 @@ body.sidebar-toggled footer.sticky-footer {
 
     #improve-seo-wrapper p{
         min-width: fit-content;
+    }
+}
+
+@media (max-width:450px){
+    #improve-seo-wrapper {
+        min-width: auto;
+        width: fit-content;
+    }
+
+    #improve-seo-wrapper p{
+        font-size: .85rem;
+        width: 12rem;
+        min-width: auto;
+        height: fit-content;
+    }
+}
+
+@media (max-width:515px){
+    #offers-col{
+        width:80%;
+        max-width: 80%;
     }
 }
    
