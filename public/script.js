@@ -8,4 +8,5 @@ function toggle() {
     navbar.classList.toggle("navabar-open");
     wrapper.classList.toggle("wrapper-open");
     body.classList.toggle("body-open");
+    // toggleBUtton.classList.toggle('activeToggleBtn');
 }

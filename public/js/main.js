@@ -13,4 +13,5 @@ wrapper.classList.toggle("wrapper-open");
 bodyOverlay.classList.toggle("overlay-open");
 toggleButton.classList.toggle('button-open');
 body.classList.toggle('body-open');
+toggleButton.classList.toggle('activeToggleBtn')
 }

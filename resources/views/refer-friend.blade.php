@@ -455,7 +455,7 @@
                         <label for="businessOption" class="fw-600"
                           >Which products are you interested in offering?
                         </label>
-                        <div class="d-flex justify-content-between">
+                        <div class="">
                           <div class="from-group_radio" id="radio">
                             <div>
                               <input

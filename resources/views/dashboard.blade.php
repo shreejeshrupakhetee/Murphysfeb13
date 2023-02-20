@@ -215,7 +215,7 @@
                   Other Information
                 </h5>
                
-                <p>Status:<span class="text-success">Active</span></p>
+                <p>Status:<span class="text-success" id='user-status'>Active</span></p>
                 <p>Registered: <span> {{ Auth::user()->created_at }} </span></p>
                 <p>Client for: <span>{{ Auth::user()->last_seen }} </span></p>
                 <p>Email Verified: <span>Yes</span></p>
@@ -426,23 +426,6 @@
   <!-- Bootstrap core JavaScript-->
   <script src="{{ URL::asset("jquery/jquery.min.js")}}"></script>
   <script src="{{ URL::asset("bootstrap/js/bootstrap.bundle.min.js")}}"></script>
-  <script>
-      console.log('error isabdsahdvjhvh')
-     const toggleButton = document.querySelector("#sidebarToggleTop"); 
-     const navbar = document.querySelector(".navbar-nav");
-     const wrapper = document.querySelector("#content-wrapper");
-     const bodyOverlay = document.querySelector(".body-overlay");
-     const body = document.querySelector("body");
-     toggleButton.addEventListener("click", toggle);
-
-   function toggle() {
-     navbar.classList.toggle("navabar-open");
-     wrapper.classList.toggle("wrapper-open");
-     bodyOverlay.classList.toggle("overlay-open");
-     toggleButton.classList.toggle('button-open');
-     body.classList.toggle('body-open');
-   }
-  </script>
 </body>
 
 </html>

@@ -10075,6 +10075,10 @@ a.text-secondary:focus {
     color: #1cc88a !important;
 }
 
+#user-status{
+    margin-left: .35rem;
+}
+
 a.text-success:hover,
 a.text-success:focus {
     color: #13855c !important;
@@ -11852,8 +11856,12 @@ body.sidebar-toggled footer.sticky-footer {
         }
 
         .service-wrapper .service-content-left p{
-            min-width: 40ch;
-            max-width: 45ch;
+            min-width: fit-content;
+            max-width: 100%;
+        }
+
+        .service-wrapper .service-content-right {
+            width: 0;
         }
 
         
@@ -11875,7 +11883,7 @@ body.sidebar-toggled footer.sticky-footer {
 
        #refer-card,#earn-card, #sign-up-card{
         max-height: fit-content;
-        min-width: 30rem;
+        min-width: 22.5rem;
         max-width: auto;
         margin-bottom: .35rem;
         padding: .35rem;
@@ -11886,7 +11894,7 @@ body.sidebar-toggled footer.sticky-footer {
     @media (max-width:940px){
         #affilate-service{
             min-width: fit-content;
-            max-width: 65%;
+            max-width: 100%;
             font-size: .85rem;
         }
         #affilate-service .service-content-left {
@@ -11988,6 +11996,17 @@ body.sidebar-toggled footer.sticky-footer {
         width:80%;
         max-width: 80%;
     }
+}
+
+@media (max-width:496px){
+    #contact-card{
+        min-width: fit-content;
+    }
+}
+
+.activeToggleBtn{
+    color:red;
+    background-color: white;
 }
    
 
