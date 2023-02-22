@@ -12008,7 +12008,154 @@ body.sidebar-toggled footer.sticky-footer {
     color:red;
     background-color: white;
 }
+
+.invoice-wrapper {
+    width: 80%;
+}
+
+.invoice-wrapper table{
+    table-layout: fixed;
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
+.invoice-wrapper table thead{
+    padding-bottom: 2rem;
+}
+
+.invoice-wrapper table thead th:first-of-type{
+    width: 12.5%;
+}
+
+.invoice-wrapper table thead th:nth-of-type(2){
+    width: 35%;
+}
+.invoice-wrapper table thead th:nth-of-type(3){
+    width: 10%;
+}
+
+.invoice-wrapper table thead th:nth-of-type(4){
+  width: 22.5%;
+}
+
+.invoice-wrapper table th{
+    padding-bottom: 1.25rem;
+}
+
+.invoice-wrapper tbody tr td:first-of-type{
+    width: 12.5%;
+}
+
+.invoice-wrapper table tbody tr td:nth-of-type(2){
+    width: 35%;
+}
+.invoice-wrapper table tbody tr td:nth-of-type(3){
+    width: 10%;
+}
+
+.invoice-wrapper table tbody tr td:nth-of-type(4){
+  width: 38.5%;
+}
+
+.invoice-wrapper table tbody tr td:last-of-type{
+   font-weight: 600;
+  }
+
+.invoice-wrapper table tbody tr td a{
+    max-width: fit-content;
+    display: inline-flex;
+    align-items: baseline;
+    font-weight: 600;
+}
+.invoice-wrapper table tbody tr td a i {
+    margin-right: .25rem;
+}
    
+.invoice-wrapper table tbody tr td a:first-of-type{
+    margin-right: 1.5rem;
+    color:var(--blue);
+}
+
+.invoice-wrapper table tbody tr td a:nth-of-type(2){
+    margin-right: 1.5rem;
+    color:var(--pink);
+}
+
+#payment-pending i, #payment-done i {
+  margin-right: .25rem;
+}
+
+#payment-pending, #payment-done {
+    font-weight: 600;
+}
+
+#payment-pending {
+    color: var(--red);
+}
+
+#payment-done {
+    color: var(--teal);
+}
+
+.purchase-heading{
+    padding: 1.5rem 0;
+}
+
+.filter-section input, select{
+    padding: .5rem 1.25rem;
+    outline: none;
+    border: .1em solid grey;
+    border-radius: .25rem;
+}
+
+.filter-section label {
+    margin-left:1.75rem;
+    margin-right: .75rem;
+    font-weight: 600;
+    color: grey;
+}
+
+.invoice-wrapper .table-section{
+    width: 100%;
+    overflow-x: scroll;
+    height: 50vh;
+    overflow-y: scroll;
+}
+
+.invoice-wrapper .table-section table tbody tr{
+   height: 8vh;
+}
+
+
+.invoice-wrapper table tbody tr td:first-of-type span{
+   padding-left: .75rem;
+}
+
+.invoice-wrapper tbody tr:nth-of-type(even) {
+    background-color: #ffffff;
+}
+
+.invoice-wrapper table p {
+    margin: 0 !important;
+}
+
+.bill-preview-modal {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 65%;
+    box-shadow: .1rem .1rem .35rem grey, -.1rem -.1rem .35rem grey;
+    border-radius: .25rem;
+    display: none;
+    /* backdrop-filter: blur(10px); */
+}
+
+.show-bill{
+    display: block;
+}
+
 
 
 

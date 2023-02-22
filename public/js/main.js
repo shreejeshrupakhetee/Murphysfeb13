@@ -15,3 +15,15 @@ toggleButton.classList.toggle('button-open');
 body.classList.toggle('body-open');
 toggleButton.classList.toggle('activeToggleBtn')
 }
+
+
+// // bill page modal
+// const printBtn = document.querySelectorAll('#print-btn');
+// const billModal = document.querySelector('.bill-preview-modal');
+// printBtn.forEach(btn=>{
+//     btn.addEventListener('click', (event)=>{
+//        event.preventDefault();
+//        billModal.classList.add('show-bill')
+//        body.setAttribute('backdrop-filter', 'blur(10px)');  
+//     })
+// })

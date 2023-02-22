@@ -21,6 +21,9 @@
     integrity="sha512-YFENbnqHbCRmJt5d+9lHimyEMt8LKSNTMLSaHjvsclnZGICeY/0KYEeiHwD1Ux4Tcao0h60tdcMv+0GljvWyHg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <!--fontawesome cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <!-- Custom styles for this template-->
   <link href="{{ URL::asset("/css/style.css") }}" rel="stylesheet" />
 </head>
@@ -207,170 +210,107 @@
             <span class="fs-13">Client Area</span>
           </div>
         </div>
-        <div class="container">
-          <div class="row mt-5">
-            <div class="col-xl-4 col-lg-5 pr-4">
-              <div class="client-infos">
-                <h5 class="fw-600 fs-17 mb-3">
-                  Other Information
-                </h5>
-               
-                <p>Status:<span class="text-success" id='user-status'>Active</span></p>
-                <p>Registered: <span> {{ Auth::user()->created_at }} </span></p>
-                <p>Client for: <span>{{ Auth::user()->last_seen }} </span></p>
-                <p>Email Verified: <span>Yes</span></p>
-              </div>
-              <div class="mt-4 pb-2">
-                @foreach($users as $user)
-                <button type="button" class="btn fs-14 text-success btn-login">
-                  Last Login:{{Carbon\Carbon::parse($user->last_seen)->diffForHumans() }}
-                </button>
-                @endforeach
-              </div>
-              <div class="card profile-details-card mt-4 shadow mb-4">
-                <!-- Card Body -->
-                <div class="card-body">
-                  <img class="img-profile rounded-circle" src="{{ URL::asset("/image/undraw_profile.svg") }}" />
-                  <div class="user-profile-details">
-                    <h5 class="fw-600 fs-17 mb-3 mt-3">
-                     {{ Auth::user()->firstname }} 
-                     {{ Auth::user()->lastname }} 
-                    </h5>
-                    <p> {{ Auth::user()->streetaddress1 }}  </p>
-                    <p> {{ Auth::user()->city }} </p>
-                  </div>
-                  <div class="mt-4">
-                    <a href="{{ URL::asset("user/update") }}" class="btn text-primary fs-14 px-4 btn-update">Update</a>
-                    <a href="{{ URL::asset("logout") }}" class="btn fs-14 px-4 btn-outline-logout">Logout</a>
-                  </div>
-                </div>
-              </div>
-              <div class="shortcuts-links mb-5 pt-2">
-                <h5 class="fw-600 fs-17 mb-3">Shortcuts</h5>
-                <div class="shortcut-lists">
-                  <div class="d-flex flex-column">
-                    <a class="text-decoration-none fw-500 mb-2 text-primary" href="{{ URL::asset("website-design") }}">
-                      <i class="fas fa-plus fa-sm fa-fw mr-1"></i>
-                      Order New Services
-                    </a>
-                    <a href="https://www.hosting.murphystechnology.com.au/" target="_blank"
-                      class="text-decoration-none fw-500 mb-2 text-primary">
-                      <i class="fas fa-tag fa-sm fa-fw mr-1"></i>
-                      Domain Registration
-                    </a>
-                    <a href="{{ URL::asset("logout") }}" class="text-decoration-none fw-500 mb-2 text-primary">
-                      <i class="fas fa-sign-out-alt fa-sm fa-fw mr-1"></i>
-                      Logout
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-8 col-lg-7">
-              <div class="service-slider row mb-4">
-                <div class="col-12">
-                  <div id="serviceSliderFade" class="carousel slide carousel-fade" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                      <li data-target="#serviceSliderFade" data-slide-to="0" class="active"></li>
-                      <li data-target="#serviceSliderFade" data-slide-to="1"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <div class="carousel-service-img">
-                          <img src="{{ URL::asset("/image/slider1.jpg") }}" class="d-block w-100" alt="..." />
-                        </div>
-                      </div>
-                      <div class="carousel-item">
-                        <div class="carousel-service-img">
-                          <img src="{{ URL::asset("/image/slider2.jpg") }}" class="d-block w-100" alt="..." />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row pt-2">
-                <!-- Earnings (Monthly) Card Example -->
-                <div class="col-xl-4 col-md-6 mb-4">
-                  <div class="card service-card shadow h-100">
-                    <a href="{{ URL::asset("services") }}" class="text-decoration-none">
-                      <div class="card-body">
-                        <div class="row no-gutters">
-                          <div class="col mr-2">
-                            <div class="font-weight-bold text-success text-uppercase mb-1">
-                              Services
-                            </div>
-                            <div class="h2 mb-0 font-weight-bold text-gray-800">
-                              0
-                            </div>
-                          </div>
-                          <div class="col-auto">
-                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-
-                <!-- Earnings (Monthly) Card Example -->
-                <div class="col-xl-4 col-md-6 mb-4">
-                  <div class="card service-card shadow h-100">
-                    <a href="{{ URL::asset("unpaid-invoice") }}" class="text-decoration-none">
-                      <div class="card-body">
-                        <div class="row no-gutters">
-                          <div class="col mr-2">
-                            <div class="font-weight-bold text-info text-uppercase mb-1">
-                              Unpaid <br />
-                              Invoices
-                            </div>
-                            <div class="row no-gutters align-items-center">
-                              <div class="col-auto">
-                                <div class="h2 mb-0 mr-3 font-weight-bold text-gray-800">
-                                  0
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="col-auto">
-                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-
-                <!-- Pending Requests Card Example -->
-                <div class="col-xl-4 col-md-6 mb-4">
-                  <div class="card service-card shadow h-100">
-                    <a href="{{ URL::asset("tickets") }}" class="text-decoration-none">
-                      <div class="card-body">
-                        <div class="row no-gutters">
-                          <div class="col mr-2">
-                            <div class="font-weight-bold text-warning text-uppercase mb-1">
-                              Tickets
-                            </div>
-                            <div class="h2 mb-0 font-weight-bold text-gray-800">
-                              0
-                            </div>
-                          </div>
-                          <div class="col-auto">
-                            <i class="fas fa-tag fa-2x text-gray-300"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
       <!-- End of Main Content -->
+   
+      <div class="invoice-wrapper" style='margin-left:270px'>
+        <div class="recent-purchase">
+            <div class="purchase-heading">
+                <h2>Hello, <span style="color:blue;">Shreejesh</span></h2>
+            <h3>Loot at your recent purchases</h3>
+            </div>
+            <div class="purchase-list">
+                <div class="filter-section">
+                    <input
+                        type="search"
+                        name=""
+                        id=""
+                        placeholder="Search your purchase"
+                    />
+                    <span>
+                        <label for="filter">Filter your purchase:</label>
+                        <select name="" id="filter">
+                            <optgroup>
+                                <option value="hosting">Web Hosting</option>
+                                <option value="hosting">
+                                    Digital Marketing
+                                </option>
+                                <option value="hosting">SEO</option>
+                            </optgroup>
+                        </select>
+                    </span>
+
+                    <span>
+                        <label for="filter">Filter by payment status:</label>
+                        <select name="" id="filter">
+                            <optgroup>
+                                <option value="hosting">Paid</option>
+                                <option value="hosting">Pending</option>
+                            </optgroup>
+                        </select>
+                    </span>
+                </div>
+                <div class="table-section">
+                <table>
+                    <thead>
+                        <th scope='col'>Purchase ID</th>
+                        <th scope='col'>Purchase Item</th>
+                        <th scope='col'>Cost</th>
+                        <th scope='col'>Actions</th>
+                        <th scope='col'>Payment</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span>1</span></td>
+                            <td><p>Web Hosting</p></td>
+                            <td>
+                                <span>$</span>
+                                <span>198</span>
+                            </td>
+                            <td>
+                                <a href="" download><i class="fa-solid fa-download"></i> Download</a>
+                                <a href="" id='print-btn'><i class="fa-solid fa-print"></i>Print</a>
+                            </td> 
+                            <td>
+                                <span id="payment-pending"><i class="fa-solid fa-hourglass"></i> Pending</span>
+                            </td>  
+                        </tr>
+                        <tr>
+                            <td><span>2</span></td>
+                            <td><p>SEO and Digital Marketing</p></td>
+                            <td>
+                                <span>$</span>
+                                <span>355</span>
+                            </td>
+                            <td>
+                                <a href="" download><i class="fa-solid fa-download"></i>Download</a>
+                                <a href="" id='print-btn'><i class="fa-solid fa-print"></i>Print</a>
+                            </td>
+                            <td>
+                                <span id="payment-done"><i class="fa-solid fa-check"></i> Done </span>
+                            </td> 
+                        </tr>
+                        <tr>
+                            <td><span>3</span></td>
+                            <td><p>Ad Boosting</p></td>
+                            <td>
+                                <span>$</span>
+                                <span>45</span>
+                            </td>
+                            <td>
+                                <a href="" download><i class="fa-solid fa-download"></i>Download</a>
+                                <a href="" id='print-btn'><i class="fa-solid fa-print"></i>Print</a>
+                            </td>
+                            <td>
+                                <span id="payment-done"><i class="fa-solid fa-check"></i> Done </span>
+                            </td> 
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+      </div>
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
@@ -414,6 +354,13 @@
       </div>
     </div>
   </div>
+
+  <!--preview modal-->
+  <!-- <div class="bill-preview-modal">
+
+  </div> -->
+
+ 
 
   <!--overlay element-->
   <div class="body-overlay">
