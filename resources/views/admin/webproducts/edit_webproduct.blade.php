@@ -5,23 +5,30 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Create Plan') }}</div>
+                    <div class="card-header">{{ __('Edit WebProduct') }}</div>
 
                     <div class="card-body">
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-0">
                                 <span>
-                                    <a href="{{ route('admin.plan.create') }}">
+                                    <a href="{{ route('admin.webproduct.edit', ['id' => $webproduct->id]) }}">
                                         {{ __('Refresh') }}
                                     </a>
                                 </span>
-                                    &nbsp;&nbsp;&nbsp;
-                                    <span>
-                                    <a href="{{ route('admin.plans.list') }}">
-                                        {{ __('View Plans') }}
+                                &nbsp;&nbsp;&nbsp;
+                                <span>
+                                    <a href="{{ route('admin.webproduct.create') }}">
+                                        {{ __('Create WebProduct') }}
                                     </a>
                                 </span>
+                                &nbsp;&nbsp;&nbsp;
+                                <span>
+                                    <a href="{{ route('admin.webproducts.list') }}">
+                                        {{ __('View WebProducts') }}
+                                    </a>
+                                </span>
+
                             </div>
                         </div>
                         <hr>
@@ -29,19 +36,21 @@
                         <!-- for success or failure message -->
                         @include('alerts.messages')
 
-                            <form method="POST" action="{{ route('admin.plan.store') }}">
+                        @if(count(array($webproduct)) > 0)
+                            <form method="POST" action="{{ route('admin.webproduct.update', $webproduct->id) }}">
                                 @csrf
+                                @method('PUT')
 
                                 <div class="form-group row">
                                     <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('fname') }}" required autocomplete="name" autofocus>
+                                        <input id="name" type="text" value="{{$webproduct->name}}" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                         @error('name')
                                         <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                         @enderror
                                     </div>
                                 </div>
@@ -61,7 +70,7 @@
                                     <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Price') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="phone" type="text" class="form-control @error('price') is-invalid @enderror" name="price" minlength="1" maxlength="3" required>
+                                        <input id="phone" type="text" value="{{$webproduct->price}}" class="form-control @error('price') is-invalid @enderror" name="price" minlength="1" maxlength="3" required>
 
                                         @error('price')
                                         <span class="invalid-feedback" role="alert">
@@ -75,7 +84,7 @@
                                     <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Duration') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="phone" type="text" class="form-control @error('duration') is-invalid @enderror" name="duration" minlength="1" maxlength="3" required>
+                                        <input id="phone" type="text" value="{{$webproduct->description1}}" class="form-control @error('duration') is-invalid @enderror" name="duration" minlength="1" maxlength="3" required>
 
                                         @error('duration')
                                         <span class="invalid-feedback" role="alert">
@@ -89,8 +98,9 @@
                                     <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
 
                                     <div class="col-md-6">
-{{--                                        <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" required>--}}
-                                        <textarea id="description" rows="3" cols="100"  class="form-control @error('description') is-invalid @enderror" name="description" minlength="20" maxlength="200" required></textarea>
+                                        {{--                                        <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" required>--}}
+                                        <textarea id="description" rows="3" cols="100"  class="form-control @error('description') is-invalid @enderror" name="description" minlength="20" maxlength="200" required>{{$webproduct->description1}}
+                                        </textarea>
 
                                         @error('description')
                                         <span class="invalid-feedback" role="alert">
@@ -103,11 +113,14 @@
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">
                                         <button type="submit" class="btn btn-primary">
-                                            {{ __('Create') }}
+                                            {{ __('Update') }}
                                         </button>
                                     </div>
                                 </div>
                             </form>
+                        @else
+                            <p class="mt-5 mb-5">No Results</p>
+                        @endif
 
                     </div>
                 </div>

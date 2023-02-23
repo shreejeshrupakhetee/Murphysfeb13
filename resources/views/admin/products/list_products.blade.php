@@ -8,21 +8,20 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('List Plans') }}</div>
-
+                <div class="card-header">{{ __('List Products') }}</div>
                 <div class="card-body">
 
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-0">
                             <span>
-                                <a href="{{ route('admin.plans.list') }}">
+                                <a href="{{ route('admin.products.list') }}">
                                     {{ __('Refresh') }}
                                 </a>
                             </span>
                             &nbsp;&nbsp;&nbsp;
                             <span>
-                                <a href="{{ route('admin.plan.create') }}">
-                                    {{ __('Create Plan') }}
+                                <a href="{{ route('admin.product.create') }}">
+                                    {{ __('Create Product') }}
                                 </a>
                             </span>
                         </div>
@@ -34,37 +33,37 @@
 
                     <center>
 
-                        @if(count($plans) > 0)
+                        @if(is_countable($products) && count($products) > 0)
                             <table>
                                 <thead>
                                     <tr>
+                                        <th scope="col">S.N</th>
                                         <th scope="col">Name</th>
-                                        <th scope="col">Type</th>
+                                        <th scope="col">Price</th>
 {{--                                        <th scope="col">Price</th>--}}
-                                        <th scope="col">Duration</th>
                                         <th scope="col">Description</th>
                                         <th scope="col">Actions</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    @foreach($plans as $plan)
+                                    @foreach($products as $product)
                                         <tr>
-                                            <td data-label="Account">{{ $plan->name }}</td>
-                                            <td data-label="Due Date">{{ $plan->type }}</td>
+                                            <td data-label="Account">{{ $product->id }}</td>
+                                            <td data-label="Account">{{ $product->name }}</td>
+                                            <td data-label="Due Date">{{ $product->price }}</td>
 {{--                                            <td data-label="Due Date">$ {{ $plan->price }}</td>--}}
-                                            <td data-label="Amount">{{ $plan->duration }} Days</td>
-                                            <td data-label="Amount" class="text-left">{{ $plan->description }}</td>
+                                            <td data-label="Amount" class="text-left">{{ $product->description1 }}</td>
                                             <td data-label="Period">
 
                                                 <span>
-                                                      <a class="btn btn-success btn-sm" href="{{route('admin.plan.show', ['id' => $plan->id])}}">
+                                                      <a class="btn btn-success btn-sm" href="{{route('admin.product.show', ['id' => $product->id])}}">
                                                           View
                                                       </a>
                                                 </span>
 
                                                 <span>
-                                                      <a class="btn btn-warning btn-sm" href="{{route('admin.plan.edit', ['id' => $plan->id])}}">
+                                                      <a class="btn btn-warning btn-sm" href="{{route('admin.product.edit', ['id' => $product->id])}}">
                                                           Edit
                                                       </a>
                                                 </span>
@@ -92,7 +91,7 @@
 {{--                                                </span>--}}
 
                                                 <span>
-                                                    <form action="{{route('admin.plan.delete', ['id' => $plan->id])}}" method="post">
+                                                    <form action="{{route('admin.product.delete', ['id' => $product->id])}}" method="post">
                                                         @csrf
                                                         {{@method_field('delete')}}
                                                         <button class="btn btn-danger btn-sm" title="Delete">Delete</button>
@@ -105,7 +104,7 @@
                                 </tbody>
                             </table>
 
-                            <p>{{ $plans->links() }}</p>
+                            <p>{{ $products->links() }}</p>
 
                         @else
                             <p>No Results</p>

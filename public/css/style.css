@@ -11622,13 +11622,7 @@ body.sidebar-toggled footer.sticky-footer {
     color: #3b5998;
 }
 
-/* .review-container {
-    position: fixed;
-    left: 250px;
-    z-index: 9999;
-    bottom: 20px;
-    width: 290px;
-} */
+
 
 .review-container{
     display: flex;
@@ -12149,12 +12143,14 @@ body.sidebar-toggled footer.sticky-footer {
     box-shadow: .1rem .1rem .35rem grey, -.1rem -.1rem .35rem grey;
     border-radius: .25rem;
     display: none;
-    /* backdrop-filter: blur(10px); */
 }
 
 .show-bill{
     display: block;
 }
+
+
+
 
 
 
