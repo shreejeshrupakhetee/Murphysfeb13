@@ -24,7 +24,7 @@ class EditProductController extends Controller
             $product = Product::findOrFail($id);// get this employee details
             //returns the page for this route
             session()->put('success', 'Successfully Retrieved!');
-            return view('admin.plans.edit_plan', compact('plan'));
+            return view('admin.products.edit_product', compact('product'));
         }
         else
         {

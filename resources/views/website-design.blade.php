@@ -24,7 +24,6 @@
   <!-- Custom styles for this template-->
   <link href="{{ URL::asset("/css/style.css") }}" rel="stylesheet" />
 </head>
-
   <body id="page-top">
     <!-- Page Wrapper -->
     <div id="wrapper">

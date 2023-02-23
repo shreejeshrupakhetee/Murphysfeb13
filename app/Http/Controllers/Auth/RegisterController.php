@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Notifications\WelcomeEmailNotification;
 
 class RegisterController extends Controller
 {
@@ -50,9 +51,20 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'firstname'         =>   'required',
+            'lastname'         =>   'required',
+            'email'        =>   'required|email|unique:users',
+            'password'     =>   'required|min:6',
+            'phone'        =>   'required',
+            'companyname',
+            'taxid',
+            'streetaddress1'=> 'required',
+            'streetaddress2',
+            'city'=>'required',
+            'state'=>'required',
+            'postcode'=>'required',
+            'surveyinfo',
+            'currencyname'
         ]);
     }
 
@@ -64,10 +76,24 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+        $user=User::create([
+            'firstname'  =>  $data['firstname'],
+            'lastname'  =>  $data['lastname'],
+            'email' =>  $data['email'],
             'password' => Hash::make($data['password']),
+            'phone'=>$data['phone'],
+            'companyname'=>$data['companyname'],
+            'taxid'=>$data['taxid'],
+            'streetaddress1'=>$data['streetaddress1'],
+            'streetaddress2'=>$data['streetaddress2'],
+            'city'=>$data['city'],
+            'state'=>$data['state'],
+            'postcode'=>$data['postcode'],
+            'surveyinfo'=>$data['surveyinfo'],
+            'currencyname'=>$data['currencyname']
         ]);
+        $user->notify(new WelcomeEmailNotification($user));
+        
+        return $user;
     }
 }

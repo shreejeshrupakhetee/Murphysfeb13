@@ -11,7 +11,7 @@
             padding: 10px;
             font-family: sans-serif;
         }
-        h1,h2,h3,h4,h5,h6,p,span,label {
+        h1,h2,h3,h4,h5,h6,p,span,label { 
             font-family: sans-serif;
         }
         table {
@@ -103,7 +103,7 @@
         <tbody>
             <tr>
                 <td>Order Id:</td>
-                <td>{{  }}</td>
+                <td>12321</td>
 
                 <td>Full Name:</td>
                 <td>{{ Auth::user()->firstname }} 

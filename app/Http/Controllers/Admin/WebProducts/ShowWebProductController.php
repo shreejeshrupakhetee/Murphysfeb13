@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Users;
+namespace App\Http\Controllers\Admin\WebProducts;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\WebProduct;
 use Illuminate\Http\Request;
 
-class ShowUserController extends Controller
+class ShowWebProductController extends Controller
 {
     /**
      * Display the specified resource.
@@ -17,15 +17,15 @@ class ShowUserController extends Controller
     public function show($id)
     {
         // check if already exist and returns true or false
-        $checker = User::where('id', $id)->exists();
+        $checker = WebProduct::where('id', $id)->exists();
 
         if($checker)
         {
-            $user = User::findOrFail($id);
+            $webproduct = WebProduct::findOrFail($id);
 
             //returns the page for this route
             session()->put('success', 'Successfully Retrieved!');
-            return view('admin.users.view_user', compact('user'));
+            return view('admin.plans.view_plan', compact('webproduct'));
         }
         else
         {

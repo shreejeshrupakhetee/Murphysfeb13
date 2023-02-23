@@ -66,7 +66,7 @@
           <span>Improve SEO</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ URL::asset("invoice") }}">
+        <a class="nav-link" href="{{ URL::asset("invoice")}}">
           <i class="fas fa-fw fa-file-invoice-dollar"></i>
           <span>Billing</span></a>
       </li>

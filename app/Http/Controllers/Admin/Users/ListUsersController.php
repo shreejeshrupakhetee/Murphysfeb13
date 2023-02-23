@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Users;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\User;
+use App\Models\User;
 
 class ListUsersController extends Controller
 {
@@ -16,7 +16,7 @@ class ListUsersController extends Controller
     public function index()
     {
         // returns the list view
-        $users = User::orderBy('role', 'asc')->paginate(3);//returns db value in descending order with pagination
+        $users = User::orderBy('id', 'asc')->paginate(3);//returns db value in descending order with pagination
         return view('admin.users.list_users', compact('users'));
     }
 

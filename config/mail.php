@@ -92,7 +92,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'support@murphystechnology.com.au'),
+        'address' => env('MAIL_FROM_ADDRESS', 'resetpassword@murphystechnology.com.au'),
         'name' => env('MAIL_FROM_NAME', 'Murphys Technology'),
     ],
 

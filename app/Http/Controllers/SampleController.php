@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\WelcomeEmailNotification;
 
 class SampleController extends Controller
 {
@@ -47,7 +48,7 @@ class SampleController extends Controller
 
         $data = $request->all();
 
-        User::create([
+        $user=User::create([
             'firstname'  =>  $data['firstname'],
             'lastname'  =>  $data['lastname'],
             'email' =>  $data['email'],
@@ -63,8 +64,8 @@ class SampleController extends Controller
             'surveyinfo'=>$data['surveyinfo'],
             'currencyname'=>$data['currencyname']
 
-        ]);
-
+        ]); 
+        $user->notify(new WelcomeEmailNotification($user));
         return redirect('login')->with('success', 'Registration Completed, now you can login');
     }
 

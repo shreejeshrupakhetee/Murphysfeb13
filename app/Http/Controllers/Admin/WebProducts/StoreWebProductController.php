@@ -1,33 +1,30 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Products;
+namespace App\Http\Controllers\Admin\WebProducts;
 
 use App\Http\Controllers\Controller;
-use App\Models\Product;
-use App\User;
+use App\Models\WebProduct;
 use Illuminate\Http\Request;
 
-class UpdateProductController extends Controller
+class StoreWebProductController extends Controller
 {
     /**
-     * Update the specified resource in storage.
+     * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function store(Request $request)
     {
         // validates fields in form
-        $request->validate([
-            'name' => 'required|min:3|max:20',
+        $this->validate($request,[
+            'name' => 'required|min:3|max:20|unique:plans',
             'description1' => 'required|min:20|max:200',
-            'price' => 'required|min:1|max:3',
-            
+            'price' => 'required|min:1|max:3',     
         ]);
 
         // store user input
-        $user = Product::find($id);
+        $user = new WebProduct();
         $user->name = $request->Input(['name']);
         $user->description1 = $request->Input(['description1']);
         $user->price = $request->Input(['price']);
@@ -37,13 +34,13 @@ class UpdateProductController extends Controller
         if($saved)
         {
             session()->put('success', 'Successfully Created!');
-            return redirect()->route('admin.products.list');
+            return redirect()->route('admin.plan.create');
         }
         else
         {
             //the else part
             session()->put('error', 'There was an error creating this data!');
-            return redirect()->route('admin.products.list');
+            return redirect()->route('admin.plan.create');
         }
 
     }

@@ -183,8 +183,7 @@
 					@if($errors->has('password'))
 						<span class="text-danger">{{ $errors->first('password') }}</span>
 					@endif
-				</div>
-		
+				</div>	
 		     </div>
 			 <h5 class="mb-3 mt-5">Join our mailing list</h5>
 			 <p class="mb-4">
@@ -206,14 +205,11 @@
 				  <label class="custom-control-label" for="customCheck">I have read and agree to the
 					<a href="#">Terms of Service *</a></label>
 				</div>
-			  </div>
-			  
-			</form>
+			  </div>			  
 			<div class="form-group row">
 				<div class="col-12">
 					<button type="submit" class="btn btn-primary btn-user btn-block">Register</button>
-				</div>			
-			
+				</div>						
 			</div>
 			<hr>
 			<div class="row">
@@ -230,8 +226,8 @@
 				  </a>
 				</div>
 			  </div>
-			  <hr>		
-
+			  <hr>
+			</form>		
 			<hr />
 			<div class="text-center">
 			  @if (Route::has('password.request'))
@@ -242,8 +238,7 @@
 			</div>
 			<div class="text-center">
 			  <a class="small" href="login">Already have an account? Login!</a>
-			</div>
-		
+			</div>	
 		</div>
 	  </div>
 	</div>

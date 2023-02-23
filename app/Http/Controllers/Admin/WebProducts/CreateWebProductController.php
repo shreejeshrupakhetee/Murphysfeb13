@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Products;
+namespace App\Http\Controllers\Admin\WebProducts;
 
 use App\Http\Controllers\Controller;
-use App\Models\Product;
+use App\Models\WebProduct;
 use Illuminate\Http\Request;
 
-class CreateProductController extends Controller
+class CreateWebProductController extends Controller
 {
     /**
      * Show the form for creating a new resource.
@@ -16,7 +16,7 @@ class CreateProductController extends Controller
     public function create()
     {
         // returns the create view
-        return view('admin.products.create_products');
+        return view('admin.webproducts.create_webproducts');
     }
 
 }
