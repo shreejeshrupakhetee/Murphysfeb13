@@ -10,7 +10,7 @@ class Paymentcontroller extends Controller
     {
         if(Auth::check())
         {
-            return view('invoice');
+            return view('view-purchase');
         }
 
         return redirect('login')->with('success', 'you are not allowed to access');

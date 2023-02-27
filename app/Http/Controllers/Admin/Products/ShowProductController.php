@@ -25,7 +25,7 @@ class ShowProductController extends Controller
 
             //returns the page for this route
             session()->put('success', 'Successfully Retrieved!');
-            return view('admin.plans.view_plan', compact('product'));
+            return view('admin.products.view_plan', compact('product'));
         }
         else
         {

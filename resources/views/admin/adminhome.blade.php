@@ -44,21 +44,21 @@
                 <i class="fa-solid fa-bag-shopping"></i>
                 <p>Products</p>
                 </span>
-                <a href=""><i class="fa-solid fa-eye"></i> View</a>
+                <a href="{{route('admin.products.list')}}"><i class="fa-solid fa-eye"></i> View</a>
             </div>
             <div class="item-card">
                 <span id="card-detail">
                 <i class="fa-solid fa-globe"></i>
                 <p>Web products</p>
                 </span>
-                <a href=""><i class="fa-solid fa-eye"></i> View</a>
+                <a href="{{ route('admin.webproducts.list') }}"><i class="fa-solid fa-eye"></i> View</a>
             </div>
             <div class="item-card">
                 <span id="card-detail">
                 <i class="fa-solid fa-coins"></i>
                 <p>Purchase</p>
                 </span>
-                <a href=""><i class="fa-solid fa-eye"></i> View</a>
+                <a href="{{ route('admin.purchases.list')}}"><i class="fa-solid fa-eye"></i> View</a>
             </div>
         </div>
     </div>

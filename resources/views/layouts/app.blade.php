@@ -7,67 +7,73 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Murphys Admin') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
-    <!--font awesome-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    
-    <link  href="{{URL::asset("css/style.css")}}" rel="stylesheet">
-
-
-   
+    <!-- Scripts -->
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
-    <div class="main-section">
-        <div class="dashboard-header">
-            <div class="text-info">
-              <p>Welcome, <span id='admin'>Admin</span></p>
-              <p>Admin Panel</p>
-            </div>
-            <a href="" id='logout-btn'>Logout <i class="fa-solid fa-right-from-bracket"></i></a>
-        </div>
-        <div class="brief-info">
-            <div class="item-card">
-             <span id="card-detail">
-             <i class="fa-solid fa-users"></i>
-                <p>Users</p>
-             </span>
-                <a href=""><i class="fa-solid fa-eye"></i> View</a>
-            </div>
-            <div class="item-card">
-                <span id="card-detail">
-                <i class="fa-solid fa-bag-shopping"></i>
-                <p>Products</p>
-                </span>
-                <a href=""><i class="fa-solid fa-eye"></i> View</a>
-            </div>
-            <div class="item-card">
-                <span id="card-detail">
-                <i class="fa-solid fa-globe"></i>
-                <p>Web products</p>
-                </span>
-                <a href=""><i class="fa-solid fa-eye"></i> View</a>
-            </div>
-            <div class="item-card">
-                <span id="card-detail">
-                <i class="fa-solid fa-coins"></i>
-                <p>Purchase</p>
-                </span>
-                <a href=""><i class="fa-solid fa-eye"></i> View</a>
-            </div>
-        </div>
-    </div>
-  
+    <div id="app">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url('/manager/home') }}">
+                    {{ config('app.name', 'Murphys Admin') }}
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-   <script src="{{URL::asset("css/style.css")}}"></script>
-   <script src="{{ URL::asset("public/app.js") }}"></script>
-  <script src="{{ URL::asset("jquery/jquery.min.js")}}"></script>
-  <script src="{{ URL::asset("bootstrap/js/bootstrap.bundle.min.js")}}"></script>
-  <script>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav me-auto">
+
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ms-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->firstname }}
+                                    {{ Auth::user()->lastname }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <main class="py-4">
+            @yield('content')
+        </main>
+    </div>
 </body>
 </html>

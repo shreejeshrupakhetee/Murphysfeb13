@@ -103,7 +103,7 @@
         <tbody>
             <tr>
                 <td>Order Id:</td>
-                <td>{{  }}</td>
+
 
                 <td>Full Name:</td>
                 <td>{{ Auth::user()->firstname }} 

@@ -18,7 +18,7 @@ use App\Http\controllers\admin\Users\UpdateUserController;
 use App\Http\controllers\admin\Users\DeleteUserController;
 use App\Http\controllers\admin\Users\DeactivateUserController;
 use App\Http\controllers\admin\Users\ActivateUserController;
-use App\Http\controllers\admin\Products\ListProductController;
+use App\Http\controllers\Admin\Products\ListProductController;
 use App\Http\controllers\admin\Products\CreateProductController;
 use App\Http\controllers\admin\Products\StoreProductController;
 use App\Http\controllers\admin\Products\ShowProductController;
@@ -121,7 +121,7 @@ Route::middleware(['auth','is_admin'])->group(function () {
     Route::get('/admin/product/{id}/edit',[EditProductController::class,'edit'])->name('admin.product.edit');
     Route::get('/admin/product/{id}/update',[UpdateProductController::class,'update'])->name('admin.product.update');
     Route::get('/admin/product/{id}/delete',[DeleteProductController::class,'destory'])->name('admin.product.delete');
-        // for admin operations on products
+        // for admin operations on web-products
         Route::get('/admin/webproducts/list',[ListWebProductController::class,'index'])->name('admin.webproducts.list');
         Route::get('/admin/webproduct/create',[CreateWebProductController::class,'create'])->name('admin.webproduct.create');
         Route::get('/admin/webproduct/store',[StoreWebProductController::class,'store'])->name('admin.webproduct.store');
