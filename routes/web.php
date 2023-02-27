@@ -18,7 +18,7 @@ use App\Http\controllers\admin\Users\UpdateUserController;
 use App\Http\controllers\admin\Users\DeleteUserController;
 use App\Http\controllers\admin\Users\DeactivateUserController;
 use App\Http\controllers\admin\Users\ActivateUserController;
-use App\Http\controllers\Admin\Products\ListProductController;
+use App\Http\Controllers\Admin\Products\ListProductController;
 use App\Http\controllers\admin\Products\CreateProductController;
 use App\Http\controllers\admin\Products\StoreProductController;
 use App\Http\controllers\admin\Products\ShowProductController;
