@@ -14,7 +14,8 @@
 
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-0">
-                            <span>
+                            <span  id='refresh-user'>
+                            <i class="fa-solid fa-arrows-rotate"></i>
                                 <a href="{{ route('admin.users.list') }}">
                                     {{ __('Refresh') }}
                                 </a>

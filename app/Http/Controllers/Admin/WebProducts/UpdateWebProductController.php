@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Products;
+namespace App\Http\Controllers\Admin\WebProducts;
 
 use App\Http\Controllers\Controller;
-use App\Models\Product;
+use App\Models\WebProduct;
 use App\User;
 use Illuminate\Http\Request;
 
-class UpdateProductController extends Controller
+class UpdateWebProductController extends Controller
 {
     /**
      * Update the specified resource in storage.
@@ -27,7 +27,7 @@ class UpdateProductController extends Controller
         ]);
 
         // store user input
-        $user = Product::find($id);
+        $user = WebProduct::find($id);
         $user->name = $request->Input(['name']);
         $user->description1 = $request->Input(['description1']);
         $user->price = $request->Input(['price']);
@@ -37,13 +37,13 @@ class UpdateProductController extends Controller
         if($saved)
         {
             session()->put('success', 'Successfully Created!');
-            return redirect()->route('admin.products.list');
+            return redirect()->route('admin.webproducts.list');
         }
         else
         {
             //the else part
             session()->put('error', 'There was an error creating this data!');
-            return redirect()->route('admin.products.list');
+            return redirect()->route('admin.webproducts.list');
         }
 
     }

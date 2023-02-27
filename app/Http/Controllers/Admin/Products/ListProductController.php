@@ -17,7 +17,7 @@ class ListProductController extends Controller
     {
         // returns the list view
         $products = Product::orderBy('id', 'asc')->paginate(3);//returns db value in descending order with pagination
-        return view('admin.plans.list_plans', compact('products'));
+        return view('admin.products.list_products', compact('products'));
     }
 
 }
