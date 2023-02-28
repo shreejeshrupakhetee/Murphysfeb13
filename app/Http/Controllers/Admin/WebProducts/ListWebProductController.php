@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\WebProducts;
 
 use App\Http\Controllers\Controller;
-use App\Models\WebProduct;
+use App\Models\Webproduct;
 use Illuminate\Http\Request;
 
 class ListWebProductController extends Controller
@@ -16,7 +16,7 @@ class ListWebProductController extends Controller
     public function index()
     {
         // returns the list view
-        $webproducts = WebProduct::orderBy('id', 'asc')->paginate(3);//returns db value in descending order with pagination
+        $webproducts = Webproduct::orderBy('id', 'asc')->paginate(3);//returns db value in descending order with pagination
         return view('admin.webproducts.list_webproducts', compact('webproducts'));
     }
 

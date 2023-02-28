@@ -122,7 +122,7 @@ Route::middleware(['auth','is_admin'])->group(function () {
     Route::get('/admin/product/{id}/update',[UpdateProductController::class,'update'])->name('admin.product.update');
     Route::get('/admin/product/{id}/delete',[DeleteProductController::class,'destory'])->name('admin.product.delete');
         // for admin operations on web-products
-        Route::get('/admin/webproducts/list',[ListWebProductController::class,'index'])->name('admin.webproducts.list');
+        Route::get('/admin/webproducts/list',[App\Http\Controllers\Admin\WebProducts\ListWebProductController::class,'index'])->name('admin.webproducts.list');
         Route::get('/admin/webproduct/create',[CreateWebProductController::class,'create'])->name('admin.webproduct.create');
         Route::get('/admin/webproduct/store',[StoreWebProductController::class,'store'])->name('admin.webproduct.store');
         Route::get('/admin/webproduct/{id}/show',[ShowWebProductController::class,'show'])->name('admin.webproduct.show');

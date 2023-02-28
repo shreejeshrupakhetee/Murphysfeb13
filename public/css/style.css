@@ -12029,23 +12029,24 @@ body.sidebar-toggled footer.sticky-footer {
     box-sizing: border-box;
     padding: 1.25rem .5rem; 
     font-weight: 600;
+    min-width: fit-content !important;
 }
 
-#users-table tbody tr td:first-of-type{
-    width: 12.5%;
+#users-table th{
+    min-width: fit-content !important;
 }
 
-#users-table tbody tr td:nth-of-type(2){
-    width: 27.5%;
+#users-table tr td:first-of-type,
+#users-table tr th:first-of-type{
+    width: 12.5% !important;
 }
 
 
-#users-table tbody tr td:nth-of-type(3){
-    width: 27.5%;
-}
 
-#users-table tbody tr td:nth-of-type(4){
-    width: 27.5%;
+#users-table tr td:nth-of-type(2),
+#users-table tr th:nth-of-type(2){
+    display: flex;
+    justify-content: start;
 }
 
 
@@ -12053,6 +12054,8 @@ body.sidebar-toggled footer.sticky-footer {
    background-color: rgba(235,235,235,.35); 
    border-radius: .25rem;
 }
+
+
 
 #users-table #edit-user,
 #users-table #delete-user {
@@ -12101,6 +12104,12 @@ body.sidebar-toggled footer.sticky-footer {
     margin-left: .5rem;
 }
 
+
+.product-table th:nth-of-type(4),
+.product-table tr td:nth-of-type(4){
+    display: flex;
+    justify-content: center;
+}
 
 
 
