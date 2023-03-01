@@ -1,7 +1,5 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\SampleController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Dashboardcontroller;
@@ -32,6 +30,7 @@ use App\Http\controllers\admin\WebProducts\ShowWebProductController;
 use App\Http\controllers\admin\WebProducts\EditWebProductController;
 use App\Http\controllers\admin\WebProducts\UpdateWebProductController;
 use App\Http\controllers\admin\WebProducts\DeleteWebProductController;
+use App\Http\Controllers\ChargeController;
 
 
 /*
@@ -94,8 +93,6 @@ Route::controller(UserController::class)->group(function(){
 
 });
 
-
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -121,7 +118,7 @@ Route::middleware(['auth','is_admin'])->group(function () {
     Route::get('/admin/product/{id}/edit',[EditProductController::class,'edit'])->name('admin.product.edit');
     Route::get('/admin/product/{id}/update',[UpdateProductController::class,'update'])->name('admin.product.update');
     Route::get('/admin/product/{id}/delete',[DeleteProductController::class,'destory'])->name('admin.product.delete');
-        // for admin operations on products
+        // for admin operations on webproducts
         Route::get('/admin/webproducts/list',[ListWebProductController::class,'index'])->name('admin.webproducts.list');
         Route::get('/admin/webproduct/create',[CreateWebProductController::class,'create'])->name('admin.webproduct.create');
         Route::get('/admin/webproduct/store',[StoreWebProductController::class,'store'])->name('admin.webproduct.store');
@@ -152,3 +149,23 @@ Route::get('/admin/subscriptions/{id}/activate', 'Admin\Subscriptions\ActivateSu
 // for admin operations on plans
 Route::delete('/admin/plans/{id}/delete', 'Admin\Plans\DeletePlanController@destroy')->name('admin.plan.delete')->middleware('admin');
 
+// Basic charge
+Route::get('/charge', [ChargeController::class,'charge'])->name('charge');
+
+Route::group(['prefix' => 'customer'], function () {
+    // Create customer
+    Route::get('/create', [ChargeController::class,'createCustomer'])->name('createCustomer');
+    // Charge with customer
+    Route::get('/{customer}/charge', 'ChargeController@chargeWithCustomer');
+});
+
+Route::group(['prefix' => 'order'], function () {
+    // Create an order
+    Route::get('/', 'OrderController@order');
+    // Order with merchant
+    Route::get('/{merchant}/merchant', 'OrderController@orderWithMerchant');
+    // Order with customer
+    Route::get('/{customer}/customer', 'OrderController@orderWithCustomer');
+    // Order with customer and merchant included
+    Route::get('/{merchant}/{customer}', 'OrderController@orderWithCustomerAndMerchant');
+});

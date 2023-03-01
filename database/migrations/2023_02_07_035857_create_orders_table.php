@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('purchases', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('bill_id');
             $table->timestamps();
         });
-        Schema::table('purchases', function (Blueprint $table) {
+        Schema::table('orders', function (Blueprint $table) {
             $table->biginteger('user_id')->unsigned();
             $table->biginteger('product_id')->unsigned();
+            $table->biginteger('webproduct_id')->unsigned();
             $table->foreign('user_id')
                   ->references('id')
                   ->on('users')
@@ -28,6 +29,7 @@ return new class extends Migration
             $table->foreign('product_id')
                   ->references('id')
                   ->on('products')
+                  ->on('webproducts')
                   ->onDelete('cascade');
         });
     }
@@ -39,12 +41,14 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('purchases', function (Blueprint $table) { 
+        Schema::table('orders', function (Blueprint $table) { 
             $table->dropForeign(['user_id']);
             $table->dropColumn('user_id');
             $table->dropForeign(['product_id']);
+            $table->dropForeign(['webproduct_id']);
             $table->dropColumn('product_id');
+            $table->dropColumn('webproduct_id');
         });
-        Schema::dropIfExists('purchases');
+        Schema::dropIfExists('orders');
     }
 };

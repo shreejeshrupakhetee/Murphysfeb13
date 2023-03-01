@@ -2,15 +2,20 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Nikolag\Square\Traits\HasProducts;
 
-class Purchase extends Model
+class Order extends Model
 {
-    use HasFactory,HasProducts;
+    use HasProducts;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
-        'bill_id','user_id','product_id','webproduct_id',
+        'total','bill_id','user_id','product_id','webproduct_id',
     ];
     public function user()
     {
@@ -24,4 +29,11 @@ class Purchase extends Model
     {
         return $this->belongsTo('App\WebProduct');
     }
+
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = true;
 }

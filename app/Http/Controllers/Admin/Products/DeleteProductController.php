@@ -22,7 +22,7 @@ class DeleteProductController extends Controller
         if($delete)
         {
             session()->put('success', 'Successfully Deleted!');
-            return redirect()->route('admin.plans.list');
+            return redirect()->route('admin.products.list');
         }
         else
         {

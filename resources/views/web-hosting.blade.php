@@ -264,7 +264,7 @@
                     </ul>
                   </div>
                   <div class="purchase-order-btn">
-                    <a href="{{$product->payment_link}}" class="btn btn-primary w-100">Buy Now</a>
+                    <a href="{ route('chargeWithMerchant')}}" class="btn btn-primary w-100">Buy Now</a>
                   </div>
                 </div>
               </div>
