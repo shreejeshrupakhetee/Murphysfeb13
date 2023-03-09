@@ -245,7 +245,7 @@
               <div class="card shadow mb-4">
                 <div class="card-body px-4 py-7">
                   <div class="purchase-price mb-3">
-                    {{$product->price}} <span>/year</span> </div>
+                    ${{$product->price}} <span>/year</span> </div>
                   <h2 class="h3 mb-4">{{$product->name}}</h2>
                   <div class="purchase-features">
                     <ul>
@@ -263,9 +263,11 @@
                       <li><i class="bi bi-check2-circle"></i>{{$product->description6}}</li>
                     </ul>
                   </div>
-                  <div class="purchase-order-btn">
-                    <a href="{ route('chargeWithMerchant')}}" class="btn btn-primary w-100">Buy Now</a>
-                  </div>
+                  <form action="{{ route('payment') }}" method="POST">
+                  @csrf
+                  <input type="hidden" name="amount" value="{{$product->price }}">
+                  <button type="submit" class="btn btn-primary w-100"> Buy Now</button>
+                  </form>
                 </div>
               </div>
             </div>

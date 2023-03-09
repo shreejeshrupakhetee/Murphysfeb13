@@ -6,7 +6,9 @@ use App\Http\Controllers\Dashboardcontroller;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Paymentcontroller;
+use App\Http\Controllers\SquarePaymentController;
+use App\http\controllers\Paymentcontroller;
+use App\http\controllers\Paypalcontroller;
 use App\Http\Controllers\Admin\Users\ListUsersController;
 use App\Http\controllers\admin\Users\CreateUserController;
 use App\Http\controllers\admin\Users\StoreUserController;
@@ -92,10 +94,14 @@ Route::controller(UserController::class)->group(function(){
     Route::get('showuser','ShowUserlist')->name('showuser');
 
 });
+Route::get('/payment', [SquarePaymentController::class, 'index'])->name('payment');
+Route::post('/payment/process-payment', [SquarePaymentController::class, 'processPayment'])->name('process-payment');
+
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 Route::middleware(['auth','is_admin'])->group(function () {
   
@@ -131,8 +137,17 @@ Route::middleware(['auth','is_admin'])->group(function () {
 });
 
 Route::controller(Paymentcontroller::class)->group(function(){
-    Route::get('invoice','invoice')->name('invoice');
+    Route::post('pay', [PaymentController::class, 'pay'])->name('payment');
+    Route::get('success', [PaymentController::class, 'success']);
+    Route::get('error', [PaymentController::class, 'error']);
 });
+
+// Route::get('createpaypal',[PaypalController::class,'createpaypal'])->name('createpaypal');
+// route::get('processPaypal',[PaypalController::class,'processPaypal'])->name('processPaypal');
+
+// route::get('processSuccess',[PaypalController::class,'processSuccess'])->name('processSuccess');
+
+// route::get('processCancel',[PaypalController::class,'processCancel'])->name('processCancel');
 
 
 // for admin operations on subscriptions
@@ -149,8 +164,8 @@ Route::get('/admin/subscriptions/{id}/activate', 'Admin\Subscriptions\ActivateSu
 // for admin operations on plans
 Route::delete('/admin/plans/{id}/delete', 'Admin\Plans\DeletePlanController@destroy')->name('admin.plan.delete')->middleware('admin');
 
-// Basic charge
-Route::get('/charge', [ChargeController::class,'charge'])->name('charge');
+// // Basic charge
+// Route::get('/checkout', [ChargeController::class,'charge'])->name('charge');
 
 Route::group(['prefix' => 'customer'], function () {
     // Create customer

@@ -221,11 +221,6 @@
                 <p>Email Verified: <span>Yes</span></p>
               </div>
               <div class="mt-4 pb-2">
-                @foreach($users as $user)
-                <button type="button" class="btn fs-14 text-success btn-login">
-                  Last Login:{{Carbon\Carbon::parse($user->last_seen)->diffForHumans() }}
-                </button>
-                @endforeach
               </div>
               <div class="card profile-details-card mt-4 shadow mb-4">
                 <!-- Card Body -->
