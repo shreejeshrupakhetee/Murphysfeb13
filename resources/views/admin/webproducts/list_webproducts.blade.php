@@ -1,120 +1,75 @@
-@extends('layouts.app')
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@include('patials.table_styles')
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-@section('content')
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
-<div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('List WebProducts') }}</div>
-                <div class="card-body">
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
-                    <div class="form-group row mb-0">
-                        <div class="col-md-6 offset-md-0">
-                            <span>
-                                <a href="{{ route('admin.webproducts.list') }}">
-                                    {{ __('Refresh') }}
-                                </a>
-                            </span>
-                            &nbsp;&nbsp;&nbsp;
-                            <span>
-                                <a href="{{ route('admin.webproduct.create') }}">
-                                    {{ __('Create WebProduct') }}
-                                </a>
-                            </span>
-                        </div>
-                    </div>
-                    <hr>
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-                    <!-- for success or failure message -->
-                    @include('alerts.messages')
+    
+    <link  href="{{URL::asset("css/style.css")}}" rel="stylesheet">
 
-                    <center>
 
-                        @if(is_countable($webproducts) && count($webproducts) > 0)
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th scope="col">S.N</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Price</th>
-{{--                                        <th scope="col">Price</th>--}}
-                                        <th scope="col">Description</th>
-                                        <th scope="col">Actions</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    @foreach($webproducts as $webproduct)
-                                        <tr>
-                                            <td data-label="Account">{{ $webproduct->id }}</td>
-                                            <td data-label="Account">{{ $webproduct->name }}</td>
-                                            <td data-label="Due Date">{{ $webproduct->price }}</td>
-{{--                                            <td data-label="Due Date">$ {{ $plan->price }}</td>--}}
-                                            <td data-label="Amount" class="text-left">{{ $webproduct->description1 }}</td>
-                                            <td data-label="Period">
-
-                                                <span>
-                                                      <a class="btn btn-success btn-sm" href="{{route('admin.webproduct.show', ['id' => $webproduct->id])}}">
-                                                          View
-                                                      </a>
-                                                </span>
-
-                                                <span>
-                                                      <a class="btn btn-warning btn-sm" href="{{route('admin.webproduct.edit', ['id' => $webproduct->id])}}">
-                                                          Edit
-                                                      </a>
-                                                </span>
-
-{{--                                                <span style="display: block; margin-bottom: 3px; margin-top: 3px;">--}}
-{{--                                                    @if($user->status=='active')--}}
-{{--                                                        <a href="{{route('admin.user.deactivate', ['id' => $user->id])}}">--}}
-{{--                                                            <button class="btn btn-danger btn-sm text-info" title="Deactivate">Deactivate</button>--}}
-{{--                                                        </a>--}}
-{{--                                                        <form method="POST" action="{{ route('admin.user.deactivate', $user->id) }}">--}}
-{{--                                                            @csrf--}}
-{{--                                                            @method('PUT')--}}
-{{--                                                            <button class="btn btn-danger btn-sm text-info" title="Deactivate">Deactivate</button>--}}
-{{--                                                        </form>--}}
-{{--                                                    @else--}}
-{{--                                                        <form method="POST" action="{{ route('admin.user.activate', $user->id) }}">--}}
-{{--                                                            @csrf--}}
-{{--                                                            @method('PUT')--}}
-{{--                                                            <button class="btn btn-danger btn-sm text-primary" title="Activate">Activate</button>--}}
-{{--                                                        </form>--}}
-{{--                                                        <a href="{{route('admin.user.activate', ['id' => $user->id])}}">--}}
-{{--                                                            <button class="btn btn-danger btn-sm text-primary" title="Activate">Activate</button>--}}
-{{--                                                        </a>--}}
-{{--                                                    @endif--}}
-{{--                                                </span>--}}
-
-                                                <span>
-                                                    <form action="{{route('admin.webproduct.delete', ['id' => $webproduct->id])}}" method="post">
-                                                        @csrf
-                                                        {{@method_field('delete')}}
-                                                        <button class="btn btn-danger btn-sm" title="Delete">Delete</button>
-                                                    </form>
-                                                </span>
-
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-
-                            <p>{{ $webproducts->links() }}</p>
-
-                        @else
-                            <p>No Results</p>
-                        @endif
-
-                    </center>
-
-                </div>
+   
+</head>
+<body>
+    <div class="main-section">
+        <div class="dashboard-header">
+            <div class="text-info">
+                <a href="{{ route('adminhome') }}" id='back-to-dashboard'><i class="fa-solid fa-arrow-left"></i> Back to dashboard</a>
+              <p id='page-info'>Admin Panel / <span>Web Products List</span></p>
             </div>
+            <a href="" id='logout-btn'>Logout <i class="fa-solid fa-right-from-bracket"></i></a>
+        </div>
+        <div class="table-section">
+            <table id='users-table' class='product-table'>
+            <thead>
+                    <tr>
+                        <th scope='col'>ID</th>
+                        <th scope='col'>Name</th>
+                        <th scope='col'>Description</th>
+                        <th scope='col'>Price</th>
+                        <th scope='col'>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($webproducts as $webproduct)
+                        <tr>
+                            <td>{{ $webproduct->id }}</td>
+                            <td>{{ $webproduct->name }} </td>
+                            <td>{{ $webproduct->description1 }}, {{ $webproduct->description4 }}, {{ $webproduct->description5 }}, {{ $webproduct->description8 }}</td>
+                            <td>{{ $webproduct->price }}</td>
+                            <td><a href="" id='edit-user'> <i class="fa-solid fa-pen"></i> Edit</a>
+                            <a href="" id='delete-user'><i class="fa-solid fa-trash"></i>Delete</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            </table>
+        </div>
+        <div class="pagination">
+            <a href="" id="previous-btn"><i class="fa-solid fa-chevron-left"></i>Previous</a>
+            <span>1 of 5</span>
+             <a href="" id="next-btn">Next<i class="fa-solid fa-chevron-right"></i></a>  
         </div>
     </div>
-</div>
-@endsection
+  
+
+   <script src="{{URL::asset("css/style.css")}}"></script>
+   <script src="{{ URL::asset("public/app.js") }}"></script>
+  <script src="{{ URL::asset("jquery/jquery.min.js")}}"></script>
+  <script src="{{ URL::asset("bootstrap/js/bootstrap.bundle.min.js")}}"></script>
+  <script>
+</body>
+</html>
